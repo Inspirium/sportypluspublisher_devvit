@@ -1,0 +1,36 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="ball" x1="120" y1="150" x2="420" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9EFFA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- mark -->
+  <g transform="translate(96 175)">
+    <g stroke="#FFFFFF" stroke-linecap="round" fill="none">
+      <path d="M300 40 A 96 96 0 0 1 373 113" stroke-width="21" opacity="0.95"/>
+      <path d="M285 -3 A 150 150 0 0 1 417 129" stroke-width="21" opacity="0.6"/>
+      <path d="M270 -45 A 204 204 0 0 1 460 145" stroke-width="21" opacity="0.32"/>
+    </g>
+    <circle cx="160" cy="150" r="165" fill="url(#ball)"/>
+    <path d="M44 71 C 113 121 113 179 44 229" stroke="#60A5FA" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.55"/>
+    <path d="M276 71 C 207 121 207 179 276 229" stroke="#60A5FA" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.55"/>
+    <g stroke="#2563EB" stroke-width="37" stroke-linecap="round">
+      <path d="M160 79 V 221"/>
+      <path d="M89 150 H 231"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="620" y="292" font-family="'Helvetica Neue', Arial, sans-serif" font-size="76" font-weight="700" fill="#FFFFFF" letter-spacing="-1">SportyPlus</text>
+  <text x="620" y="372" font-family="'Helvetica Neue', Arial, sans-serif" font-size="76" font-weight="700" fill="#BFDBFE" letter-spacing="-1">Publisher</text>
+  <text x="622" y="432" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="400" fill="#DBEAFE">Publish your club's announcements to Reddit.</text>
+</svg>

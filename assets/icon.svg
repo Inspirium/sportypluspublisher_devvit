@@ -1,0 +1,31 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="ball" x1="270" y1="300" x2="620" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9EFFA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" rx="232" fill="url(#bg)"/>
+
+  <!-- broadcast arcs: the club's news going out -->
+  <g stroke="#FFFFFF" stroke-linecap="round" fill="none">
+    <path d="M636 300 A 152 152 0 0 1 752 416" stroke-width="34" opacity="0.95"/>
+    <path d="M612 232 A 236 236 0 0 1 820 440" stroke-width="34" opacity="0.6"/>
+    <path d="M588 165 A 320 320 0 0 1 887 464" stroke-width="34" opacity="0.32"/>
+  </g>
+
+  <!-- tennis ball with the SportyPlus "plus" -->
+  <circle cx="446" cy="582" r="262" fill="url(#ball)"/>
+  <path d="M262 456 C 372 536 372 628 262 708" stroke="#60A5FA" stroke-width="22" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <path d="M630 456 C 520 536 520 628 630 708" stroke="#60A5FA" stroke-width="22" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <g stroke="#2563EB" stroke-width="58" stroke-linecap="round">
+    <path d="M446 470 V 694"/>
+    <path d="M334 582 H 558"/>
+  </g>
+</svg>
