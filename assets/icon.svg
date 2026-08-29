@@ -1,16 +1,8 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#38BDF8"/>
-      <stop offset="0.55" stop-color="#2563EB"/>
-      <stop offset="1" stop-color="#1D4ED8"/>
-    </linearGradient>
-  </defs>
-
-  <rect width="1024" height="1024" rx="232" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1022" height="1022" rx="231" fill="#FFFFFF" stroke="#E6E6E9" stroke-width="2"/>
 
   <!-- Tenis.plus / SportyPlus mark (static/logo__login.svg), centered -->
-  <g transform="translate(233 191) scale(2.35)" fill="#FFFFFF">
+  <g transform="translate(212 171) scale(2.5)" fill="#2B2B2F">
     <path d="M160.32,103.27c-0.957-1.245-2.14-2.488-3.586-3.934c-12.758-12.822-29.205-21.094-46.918-23.783
       c-0.058,24.739-9.538,48.707-26.533,66.726c-0.592,0.771-1.245,1.425-1.836,2.018c-18.24,18.362-42.881,28.551-68.438,28.672
       c2.671,17.772,10.965,34.282,23.725,47.099c1.305,1.266,2.567,2.508,4.157,3.813c12.229,10.862,26.962,17.77,42.94,20.151

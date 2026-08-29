@@ -24,7 +24,7 @@ Mod Tools / Utilities
 
 ## Short description (~1–2 sentences)
 
-SportyPlus Publisher lets a racket-sports club publish its announcements — tournament
+SportyPlus Publisher lets a sports club publish its announcements — tournament
 sign-ups, results, news — from the SportyPlus club-management platform to the club's own
 subreddit, without leaving SportyPlus. A moderator installs the app, links it to the club
 with a one-time code, and every announcement the club sends from SportyPlus is posted here
@@ -32,10 +32,10 @@ automatically.
 
 ## Full description (markdown)
 
-**For racket-sports clubs that run their community on Reddit.**
+**For sports clubs that run their community on Reddit.**
 
-[SportyPlus](https://www.sporty.plus) is a club-management platform for tennis, padel and
-pickleball clubs. This app connects a club's SportyPlus account to its subreddit so
+[SportyPlus](https://www.sporty.plus) is a club-management platform for tennis, padel,
+pickleball, and other sport clubs. This app connects a club's SportyPlus account to its subreddit so
 announcements written once in SportyPlus are published to Reddit automatically.
 
 ### How it works
@@ -72,9 +72,9 @@ on its own — there is no content to publish.
   secret configured as an app setting.
 - All posts originate from a deliberate "publish" action a club admin takes inside SportyPlus.
   There is no automated posting, scraping, or cross-posting of third-party content.
-- Privacy policy: TODO — confirm the live URL (likely https://www.sporty.plus/privacy).
+- Privacy policy: https://www.sporty.plus/privacy
 
 ## Support
 
 - Website: https://www.sporty.plus
-- Contact: TODO — set a support address / URL before submitting for review.
+- Contact: info@sporty.plus
