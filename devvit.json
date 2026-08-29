@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "sportypluspublisher",
+  "permissions": {
+    "reddit": {
+      "scope": "user"
+    },
+    "redis": true,
+    "http": {
+      "enable": true,
+      "domains": ["api.sporty.plus", "api.staging.sporty.plus"]
+    }
+  },
+  "post": {
+    "entrypoints": {
+      "default": {
+        "entry": "splash.html"
+      },
+      "game": {
+        "entry": "game.html"
+      }
+    }
+  },
+  "server": {
+    "externalEndpoints": {
+      "publish": {
+        "endpoint": "/external/publish",
+        "scopes": ["global"]
+      }
+    }
+  },
+  "settings": {
+    "global": {
+      "sportySharedSecret": {
+        "type": "string",
+        "label": "SportyPlus shared secret",
+        "helpText": "Sent as X-Sporty-Secret on pairing/heartbeat callbacks and required on /external/publish. Must match SOCIAL_REDDIT (services.devvit.shared_secret) in the SportyPlus backend.",
+        "isSecret": true
+      },
+      "sportyApiBase": {
+        "type": "string",
+        "label": "SportyPlus API base URL",
+        "helpText": "Base URL the app calls back to. Use https://api.staging.sporty.plus for playtest.",
+        "defaultValue": "https://api.sporty.plus"
+      }
+    },
+    "subreddit": {
+      "sportyPairingCode": {
+        "type": "string",
+        "label": "SportyPlus pairing code",
+        "helpText": "Paste the code shown in your club's SportyPlus admin → Social → Connect Reddit. Links this subreddit to your club so announcements can be published here."
+      }
+    }
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "[sportypluspublisher] New Post",
+        "description": "Create a new sportypluspublisher post.",
+        "location": "subreddit",
+        "endpoint": "/internal/on/menu/new-post"
+      },
+      {
+        "label": "SportyPlus: link status",
+        "description": "Re-send this subreddit's pairing code to SportyPlus and show the link status.",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/on/menu/link"
+      }
+    ]
+  },
+  "triggers": {
+    "onAppInstall": "/internal/on/app/install",
+    "onAppUpgrade": "/internal/on/app/install"
+  },
+  "scheduler": {
+    "tasks": {
+      "sportyHeartbeat": {
+        "endpoint": "/internal/on/cron/heartbeat",
+        "cron": "17 * * * *"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "npm run watch"
+  },
+  "dev": {
+    "subreddit": "sportypluspublish_dev"
+  }
+}
