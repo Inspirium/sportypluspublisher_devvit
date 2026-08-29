@@ -1,7 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
   "css": {"formatter": {"enabled": true, "quoteStyle": "single"}},
-  "files": {"includes": ["**", "!dist/", "!public/*.js*"]},
+  "files": {"includes": ["**", "!dist/"]},
   "formatter": {
     "bracketSpacing": false,
     "enabled": true,
@@ -20,8 +20,8 @@
     "domains": {"project": "all"},
     "rules": {
       "correctness": {
-        // Biome resolves conditional exports without the browser condition,
-        // which reports false positives for `@devvit/web/client` named exports.
+        // Biome resolves `@devvit/web/*` conditional exports without the
+        // server/browser condition, reporting false positives on named exports.
         "noUnresolvedImports": "off"
       },
       "nursery": {

@@ -10,25 +10,15 @@ import {
   Endpoint,
   EndpointMethod,
   type ErrorRsp,
-  type GetCounterRsp,
-  type IncCounterReq,
-  type IncCounterRsp,
   type PublishReq,
   type PublishRsp,
 } from '../shared/api.ts'
-import {dbGetCounter, dbIncCounter} from './db.ts'
 import {pairSubreddit, sendHeartbeat} from './sporty.ts'
 
 /** Replay cache TTL for `/external/publish` idempotency keys. */
 const PUBLISH_TTL_MS = 7 * 24 * 60 * 60 * 1000
 
-type AnyRsp =
-  | GetCounterRsp
-  | IncCounterRsp
-  | PublishRsp
-  | UiResponse
-  | TriggerResponse
-  | ErrorRsp
+type AnyRsp = PublishRsp | UiResponse | TriggerResponse | ErrorRsp
 
 export async function onReq(
   reqMsg: IncomingMessage,
@@ -55,17 +45,8 @@ async function route(
     rsp = {error: 'not found', status: 404}
   } else {
     switch (endpoint) {
-      case Endpoint.GetCounter:
-        rsp = await routeGetCounter()
-        break
-      case Endpoint.IncCounter:
-        rsp = await routeInc(reqMsg)
-        break
       case Endpoint.ExternalPublish:
         rsp = await routeExternalPublish(reqMsg)
-        break
-      case Endpoint.OnMenuNewPost:
-        rsp = await routeMenuNewPost()
         break
       case Endpoint.OnMenuLink:
         rsp = await routeMenuLink()
@@ -84,19 +65,6 @@ async function route(
   }
 
   writeJson<PartialJsonValue>('status' in rsp ? rsp.status : 200, rsp, rspMsg)
-}
-
-async function routeGetCounter(): Promise<GetCounterRsp> {
-  const t3 = context.postId
-  if (!t3) throw Error('no t3')
-  return {count: await dbGetCounter(t3)}
-}
-
-async function routeInc(reqMsg: IncomingMessage): Promise<IncCounterRsp> {
-  const t3 = context.postId
-  if (!t3) throw Error('no t3')
-  const req = await readJson<IncCounterReq>(reqMsg)
-  return {count: await dbIncCounter(t3, req.amount)}
 }
 
 /**
@@ -155,14 +123,6 @@ async function routeExternalPublish(
     expiration: new Date(Date.now() + PUBLISH_TTL_MS),
   })
   return result
-}
-
-async function routeMenuNewPost(): Promise<UiResponse> {
-  const post = await reddit.submitCustomPost({title: context.appSlug})
-  return {
-    showToast: {text: `Post ${post.id} created.`, appearance: 'success'},
-    navigateTo: post.url,
-  }
 }
 
 /** Mod-facing: re-send the pairing code and report the link status. */

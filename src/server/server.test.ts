@@ -12,9 +12,6 @@ import {
 import {
   Endpoint,
   type ErrorRsp,
-  type GetCounterRsp,
-  type IncCounterReq,
-  type IncCounterRsp,
   type PublishReq,
   type PublishRsp,
 } from '../shared/api.ts'
@@ -39,7 +36,6 @@ let submitPostImpl: (opts: {title: string}) => {id: string; url: string} =
 
 const orig = {
   redisGet: redis.get.bind(redis),
-  redisIncrBy: redis.incrBy.bind(redis),
   redisSet: redis.set.bind(redis),
   settingsGet: settings.get.bind(settings),
   submitPost: reddit.submitPost.bind(reddit),
@@ -51,11 +47,6 @@ before(async () => {
   redis.set = async (key, value) => {
     redisValues.set(key, value)
     return 'OK'
-  }
-  redis.incrBy = async (key, amount) => {
-    const value = Number(redisValues.get(key) ?? 0) + amount
-    redisValues.set(key, `${value}`)
-    return value
   }
   settings.get = (async (name: string) =>
     settingsValues.get(name)) as unknown as typeof settings.get
@@ -96,7 +87,6 @@ before(async () => {
 after(async () => {
   redis.get = orig.redisGet
   redis.set = orig.redisSet
-  redis.incrBy = orig.redisIncrBy
   settings.get = orig.settingsGet
   reddit.submitPost = orig.submitPost
   globalThis.fetch = orig.fetch
@@ -118,25 +108,8 @@ beforeEach(() => {
   })
 })
 
-test('get counter', async () => {
-  const rsp = await fetch(`${serverURL}/${Endpoint.GetCounter}`)
-  assert.equal(rsp.status, 200)
-  assert.deepEqual<GetCounterRsp>(await rsp.json(), {count: 0})
-})
-
-test('inc', async () => {
-  const req: IncCounterReq = {amount: 1}
-  const rsp = await fetch(`${serverURL}/${Endpoint.IncCounter}`, {
-    body: JSON.stringify(req),
-    headers: {'Content-Type': 'application/json'},
-    method: 'POST',
-  })
-  assert.equal(rsp.status, 200)
-  assert.deepEqual<IncCounterRsp>(await rsp.json(), {count: 1})
-})
-
 test('wrong method', async () => {
-  const rsp = await fetch(`${serverURL}/${Endpoint.IncCounter}`)
+  const rsp = await fetch(`${serverURL}/${Endpoint.ExternalPublish}`)
   assert.equal(rsp.status, 404)
   assert.deepEqual<ErrorRsp>(await rsp.json(), {
     error: 'not found',

@@ -11,16 +11,6 @@
       "domains": ["api.sporty.plus", "api.staging.sporty.plus"]
     }
   },
-  "post": {
-    "entrypoints": {
-      "default": {
-        "entry": "splash.html"
-      },
-      "game": {
-        "entry": "game.html"
-      }
-    }
-  },
   "server": {
     "externalEndpoints": {
       "publish": {
@@ -54,12 +44,6 @@
   },
   "menu": {
     "items": [
-      {
-        "label": "[sportypluspublisher] New Post",
-        "description": "Create a new sportypluspublisher post.",
-        "location": "subreddit",
-        "endpoint": "/internal/on/menu/new-post"
-      },
       {
         "label": "SportyPlus: link status",
         "description": "Re-send this subreddit's pairing code to SportyPlus and show the link status.",
