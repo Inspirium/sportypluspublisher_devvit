@@ -21,7 +21,7 @@
     "@biomejs/biome": "2.5.10",
     "@devvit/web": "0.14.1",
     "@types/node": "24.13.3",
-    "devvit": "0.14.1",
+    "devvit": "1.0.0",
     "esbuild": "0.28.2",
     "typescript": "7.0.2"
   },
