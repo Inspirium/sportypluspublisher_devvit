@@ -22,11 +22,11 @@ No Reddit Data API access is involved. See `adr/0004` in the `Inspirium/sporty` 
 
 ## Settings
 
-| Setting | Scope | Purpose |
-|---|---|---|
-| `sportySharedSecret` | global (secret) | Must match `DEVVIT_SHARED_SECRET` in the SportyPlus backend. |
-| `sportyApiBase` | global | Callback base URL. `https://api.staging.sporty.plus` for playtest. |
-| `sportyPairingCode` | subreddit | The code from SportyPlus admin → Social → Connect Reddit. |
+| Setting              | Scope           | Purpose                                                            |
+| -------------------- | --------------- | ------------------------------------------------------------------ |
+| `sportySharedSecret` | global (secret) | Must match `DEVVIT_SHARED_SECRET` in the SportyPlus backend.       |
+| `sportyApiBase`      | global          | Callback base URL. `https://api.staging.sporty.plus` for playtest. |
+| `sportyPairingCode`  | subreddit       | The code from SportyPlus admin → Social → Connect Reddit.          |
 
 A `global` managed token (Developer Settings → API) authenticates `/external/publish`; give it
 to the backend as `DEVVIT_MANAGED_TOKEN`.

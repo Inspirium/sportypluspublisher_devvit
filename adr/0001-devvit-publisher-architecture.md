@@ -1,4 +1,5 @@
 ---
+
 status: accepted
 date: 2026-08-29
 ---
@@ -8,7 +9,7 @@ date: 2026-08-29
 Origin decision: `Inspirium/sporty` `adr/0004` — SportyPlus publishes club announcements to
 Reddit through a first-party Devvit app instead of the Data API OAuth flow, because Devvit
 Web `0.14`'s `server.externalEndpoints` gives a server-to-server publish path and every club
-already moderates its own subreddit. This ADR records the decisions specific to *this* repo.
+already moderates its own subreddit. This ADR records the decisions specific to _this_ repo.
 
 ## Server-only, no custom-post surface
 
